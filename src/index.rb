@@ -1,8 +1,8 @@
 require 'colorize'
 require "tty-prompt"
 require "tty-progressbar"
-require_relative{"./car.rb"}
-require_relative{"./colors.rb"}
+require_relative("./car.rb")
+require_relative("./colors.rb")
 
 =begin   GEM USES - delete before submit
 COLORIZE
@@ -113,7 +113,49 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 =end
 
 
-pocer = Car.new("Pocer Primacara 4SRGT", "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power.", "$310,000")
+#pocer = Car.new("Pocer Primacara 4SRGT", "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power.", "$310,000")
 
 
-color = Colors.new(["White", "Black", "Red", "Yellow"], ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color")
+#color = Colors.new(["White", "Black", "Red", "Yellow"], ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color")
+
+
+
+
+$prompt = TTY::Prompt.new
+def select_option
+  start = $prompt.select("Where to begin?", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
+  start
+end
+system "clear"
+puts "Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below"
+option = ""
+while option != "Exit"
+  option = select_option
+  case option
+  when "About the 4SRGT"
+    puts @about #not working
+  when "Base Price"
+    puts @base_price #not working
+  when "Spec a new 4SRGT"
+    $new_spec
+  when "Saved Session"
+    # check for/load a list of saved sessions
+  else 
+    puts select_option
+    next 
+  end
+end
+
+$prompt = TTY::Prompt.new
+def $new_spec
+  spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
+  spec
+end
+option = ""
+while option != "Exit"
+  option = $new_spec
+  case option
+  when "Color"
+    # load color options
+  end
+end
