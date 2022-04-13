@@ -1,4 +1,5 @@
 #require_relative("./wheels.rb")
+
 # Wheel colors - 
 # No cost - Silver, White
 # Extra Cost $1000 - Black, Satin Black, Satin Copper, Satin Deep Blue
@@ -12,14 +13,14 @@
 #     end
 # end
 
-class Wheel_colours
+class Wheel_colors
     def initialize(color, price)
         @color = color
         @price = price
     end
 
     def to_s
-        return "#{@wheel} in #{@color} for $#{@price}"
+        return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
     end
 
 
@@ -33,5 +34,5 @@ end
 
 
 
-spec = Wheel_colours.new("Satin Black", "1000")
-puts spec
+wheel_color_spec = Wheel_colors.new("Satin Black", "1000")
+puts wheel_color_spec

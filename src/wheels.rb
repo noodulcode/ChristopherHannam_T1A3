@@ -15,13 +15,15 @@
 # end
 
 class Wheels
+    attr_reader :wheel
     def initialize(wheel, price)
         @wheel = wheel
         @price = price
     end
 
+
     def to_s
-        return "Pocer Primacara 4SRGT with #{@wheel} for $#{@price}"
+        return "Pocer Primacara 4SRGT with #{@wheel} wheels for $#{@price}"
     end
 
 
@@ -35,5 +37,5 @@ end
 
 
 
-spec = Wheels.new("20 inch Forged Magnesium", "28000")
-puts spec
+wheel_spec = Wheels.new("20 inch Forged Magnesium", "28000")
+puts wheel_spec

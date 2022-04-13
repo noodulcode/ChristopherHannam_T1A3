@@ -1,8 +1,15 @@
 require 'colorize'
 require "tty-prompt"
 require "tty-progressbar"
-require_relative("./car.rb")
-require_relative("./colors.rb")
+# require_relative("./car.rb")
+# require_relative("./spec.rb")
+# require_relative("./colors.rb")
+# require_relative("./wheels.rb")
+# require_relative("./wheelcolors.rb")
+# require_relative("./interior.rb")
+# require_relative("./exterior.rb")
+# require_relative("./mechanical.rb")
+# require_relative("./audio.rb")
 
 =begin   GEM USES - delete before submit
 COLORIZE
@@ -118,12 +125,37 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 
 #color = Colors.new(["White", "Black", "Red", "Yellow"], ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color")
 
-
-
-
 $prompt = TTY::Prompt.new
+#intro
+def show_about
+  puts "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power."
+end
+def show_price
+  puts "The Pocer Primacara 4SRGT has a starting price of $310,000 plus extras."
+end
+def color
+  start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"],),("Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"])
+  start
+end
+    # No cost - White, Black, Red, Yellow
+    # Extra cost $6000 - White Metallic, GT Silver, Metallic Navy, Chalk Grey, Bluesky
+    # High cost $18000 - Custom Color)
+  
+def new_spec
+  start = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
+  start
+end
+option = ""
+while option != "Exit"
+  option = new_spec
+  case option
+  when "Color"
+    color
+  end
+end
+
 def select_option
-  start = $prompt.select("Where to begin?", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
+  start = $prompt.select("Where to..?", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
   start
 end
 system "clear"
@@ -133,11 +165,12 @@ while option != "Exit"
   option = select_option
   case option
   when "About the 4SRGT"
-    puts @about #not working
+    show_about
   when "Base Price"
-    puts @base_price #not working
+    show_price
   when "Spec a new 4SRGT"
-    $new_spec
+    new_spec
+    #$new_spec
   when "Saved Session"
     # check for/load a list of saved sessions
   else 
@@ -146,16 +179,23 @@ while option != "Exit"
   end
 end
 
-$prompt = TTY::Prompt.new
-def $new_spec
-  spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
-  spec
-end
-option = ""
-while option != "Exit"
-  option = $new_spec
-  case option
-  when "Color"
-    # load color options
-  end
-end
+#start speccing
+
+# $prompt = TTY::Prompt.new
+# def $new_spec
+#   spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
+#   spec
+# end
+# option = ""
+# while option != "Exit"
+#   option = $new_spec
+#   case option
+#   when "Color"
+#     Colors.new
+#   end
+# end
+
+# #or
+
+# $prompt = TTY::Prompt.new
+
