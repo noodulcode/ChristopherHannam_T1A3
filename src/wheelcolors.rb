@@ -1,6 +1,6 @@
-#require_relative("./wheels.rb")
+require_relative("./wheels.rb")
 
-# Wheel colors - 
+# Wheel colors - Subclass of Wheels
 # No cost - Silver, White
 # Extra Cost $1000 - Black, Satin Black, Satin Copper, Satin Deep Blue
 # High cost $2000 - Satin Black with Yellow rim borders (not on carbon fibre)
@@ -13,7 +13,7 @@
 #     end
 # end
 
-class Wheel_colors
+class WheelColors < Wheels
     def initialize(color, price)
         @color = color
         @price = price

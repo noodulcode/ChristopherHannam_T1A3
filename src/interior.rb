@@ -13,7 +13,7 @@
 # end
 # end
 
-class Interior
+class Interior < Spec
     def initialize(seats, price)
         @seats = seats
         @price = price
@@ -33,5 +33,5 @@ class Interior
 end
 
 
-spec = Interior.new("Alcantara Bucket seats and Accents", "3000")
-puts spec
+interior_spec = Interior.new("Alcantara Bucket seats and Accents", "3000")
+puts interior_spec

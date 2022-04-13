@@ -1,4 +1,4 @@
-# Wheels -
+# Wheels - Superclass of Wheel Colors, subclass of Spec
 # No cost - 20 inch Forged Aluminium
 # Extra cost $28000 - 20 inch Forged Magnesium
 # High cost $38000 (no color options) - 20 inch Carbon Fibre
@@ -14,7 +14,7 @@
 #     end
 # end
 
-class Wheels
+class Wheels < Spec
     attr_reader :wheel
     def initialize(wheel, price)
         @wheel = wheel

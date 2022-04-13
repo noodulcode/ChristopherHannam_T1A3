@@ -34,4 +34,16 @@ puts new_spec
 
 # #or
 
-# $prompt = TTY::Prompt.new
+#Create a new spec
+def new_spec
+    start = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
+    start
+  end
+  option = ""
+  while option != "Exit"
+    option = new_spec
+    case option
+    when "Color"
+      color
+    end
+  end

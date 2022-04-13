@@ -11,7 +11,7 @@
 # end
 # end
 
-class Audio
+class Audio < Spec
     def initialize(audio, price)
         @audio = audio
         @price = price
@@ -31,5 +31,5 @@ class Audio
 end
 
 
-spec = Audio.new("8 Speaker Surround Sound System with GPS and Touchscreen", "4000")
-puts spec
+audio_spec = Audio.new("8 Speaker Surround Sound System with GPS and Touchscreen", "4000")
+puts audio_spec

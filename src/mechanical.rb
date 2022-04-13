@@ -14,7 +14,7 @@
 # end
 # end
 
-class Mechanical
+class Mechanical < Spec
     def initialize(gearbox, price)
         @seats = seats
         @price = price

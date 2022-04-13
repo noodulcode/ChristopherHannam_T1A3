@@ -125,22 +125,27 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 
 #color = Colors.new(["White", "Black", "Red", "Yellow"], ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color")
 
+
+
+
+#Prompt script
 $prompt = TTY::Prompt.new
-#intro
+
+#Show About
 def show_about
   puts "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power."
 end
+#Show Price
 def show_price
   puts "The Pocer Primacara 4SRGT has a starting price of $310,000 plus extras."
 end
+#Spec Colors
 def color
-  start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"],),("Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"])
+  start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"], "Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"])
   start
 end
-    # No cost - White, Black, Red, Yellow
-    # Extra cost $6000 - White Metallic, GT Silver, Metallic Navy, Chalk Grey, Bluesky
-    # High cost $18000 - Custom Color)
   
+#Create a new spec
 def new_spec
   start = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
   start
@@ -154,6 +159,7 @@ while option != "Exit"
   end
 end
 
+#Intro
 def select_option
   start = $prompt.select("Where to..?", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
   start
@@ -165,12 +171,11 @@ while option != "Exit"
   option = select_option
   case option
   when "About the 4SRGT"
-    show_about
+    about
   when "Base Price"
     show_price
   when "Spec a new 4SRGT"
     new_spec
-    #$new_spec
   when "Saved Session"
     # check for/load a list of saved sessions
   else 
@@ -179,23 +184,4 @@ while option != "Exit"
   end
 end
 
-#start speccing
-
-# $prompt = TTY::Prompt.new
-# def $new_spec
-#   spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
-#   spec
-# end
-# option = ""
-# while option != "Exit"
-#   option = $new_spec
-#   case option
-#   when "Color"
-#     Colors.new
-#   end
-# end
-
-# #or
-
-# $prompt = TTY::Prompt.new
 
