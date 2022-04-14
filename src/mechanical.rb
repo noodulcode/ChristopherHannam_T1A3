@@ -1,3 +1,7 @@
+require "tty-prompt"
+#Prompt script
+$prompt = TTY::Prompt.new
+
 # Mechanical -
 #             No cost - Dual Clutch 7 Speed Gearbox with Paddle Shift, 6 Speed Manual
 #             Extra cost $4000 - Hydraulic push button Front Nose Lift, Magnesium Sports Exhaust with Valve Control and Magnesium Tips

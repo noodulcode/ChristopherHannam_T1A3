@@ -3,13 +3,13 @@ require "tty-prompt"
 require "tty-progressbar"
 # require_relative("./car.rb")
 # require_relative("./spec.rb")
-# require_relative("./colors.rb")
-# require_relative("./wheels.rb")
-# require_relative("./wheelcolors.rb")
-# require_relative("./interior.rb")
-# require_relative("./exterior.rb")
-# require_relative("./mechanical.rb")
-# require_relative("./audio.rb")
+
+# 
+# 
+# 
+# 
+# 
+# 
 
 =begin   GEM USES - delete before submit
 COLORIZE
@@ -131,41 +131,53 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 #Prompt script
 $prompt = TTY::Prompt.new
 
+
+
+
+
+
+
+
+#Intro
+def new_spec
+  spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"], "Exit")
+end
+option = ""
+while option != "Exit"
+  option = new_spec
+  case option
+  when "Color" 
+    require_relative("./colors.rb")
+  when "Wheels"
+    require_relative("./wheels.rb")
+  when "Wheel Color"
+    require_relative("./wheelcolors.rb")
+  when "Interior"
+    require_relative("./interior.rb")
+  when "Exterior"
+    require_relative("./exterior.rb")
+  when "Mechanical"
+    require_relative("./mechanical.rb")
+  when "Audio"
+    require_relative("./audio.rb")
+  when "Exit"
+    next
+  end
+end
 #Show About
-def show_about
+def about
   puts "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power."
 end
 #Show Price
 def show_price
   puts "The Pocer Primacara 4SRGT has a starting price of $310,000 plus extras."
 end
-#Spec Colors
-def color
-  start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"], "Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"])
-  start
-end
-  
-#Create a new spec
-def new_spec
-  start = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
-  start
-end
-option = ""
-while option != "Exit"
-  option = new_spec
-  case option
-  when "Color"
-    color
-  end
-end
-
-#Intro
+#require_relative("./spec.rb")
 def select_option
-  start = $prompt.select("Where to..?", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
+  start = $prompt.select("Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
   start
 end
 system "clear"
-puts "Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below"
 option = ""
 while option != "Exit"
   option = select_option
@@ -178,10 +190,72 @@ while option != "Exit"
     new_spec
   when "Saved Session"
     # check for/load a list of saved sessions
-  else 
-    puts select_option
-    next 
+  when "Exit"
+    next
   end
 end
+
+
+
+
+# option = ""
+# while option != "Exit"
+#   option = new_spec
+#   case option
+#   when "Color"
+#     Colors.new
+#   end
+# end
+
+
+#Create a new spec
+
+# def new_spec
+#   start = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Exterior", "Mechanical", "Audio"])
+#   start
+# end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Speccing
+#Spec Colors
+# def color
+#   start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"], "Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"])
+#   start
+# end
+# # Spec Wheels
+# def wheels
+#   start = $prompt.select("No Cost Options:", ["20 inch Forged Aluminium"], "Premium Options:", ["20 inch Forged Magnesium"], "Special Wheels:", ["20 inch Carbon Fibre"])
+#   start
+# end
+# # Spec Wheel Color
+# def wheel_colors
+#   start = $prompt.select("No Cost Options:", ["Silver", "White"], "Premium Options:", ["Black", "Satin Black", "Satin Copper", "Satin Deep Blue"], "Special Color:", ["Satin Black with Yellow rim borders (not available on carbon fibre wheels)"])
+#   start
+# end
+# # Spec Interior
+# def interior
+#   start = $prompt.select("No Cost Options:", ["Leather Comfort Seats and Accents"], "Premium Options:", ["Alcantara Comfort Seats and Accents", "Alcantara Bucket seats and Accents", "Electrically Adjustable Leather Comfort Seats and Accents"], "Premium Option:", ["Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents"])
+#   start
+# end
 
 

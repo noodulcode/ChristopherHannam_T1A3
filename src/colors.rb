@@ -1,21 +1,63 @@
+require "tty-prompt"
+#Prompt script
+$prompt = TTY::Prompt.new
+
 # Colors - 
 # No cost - White, Black, Red, Yellow
-# Extra cost $6000 - White Metallic, GT Silver, Metallic Navy, Chalk Grey, Bluesky
+# Extra cost $6000 - White Metallic, GT Silver, Metallic Navy, Chalk Grey, Miami Blue
 # High cost $18000 - Custom Color
 
-class Colors < Spec
+class Colors #< Spec
     attr_reader :color, :price
     def initialize(color, price)
         @color = color
-        @price = []
+        @price = price
     end
-
+  end
     def to_s
         return "Pocer Primacara 4SRGT in #{@color} for $#{@price}"
     end
     # def choose
     #     @options << {selection: price}
     # end
+
+
+    def color
+      start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"], "Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color:", ["Custom"], "Exit")
+      start
+    end
+    # def spec(color)
+    #   @color << color
+    # end
+  
+    option = ""
+    while option != "Exit"
+      option = color
+    case option
+    when "White"
+      puts Colors.new("White", 0)
+    when "Black"
+      puts Colors.new("Black", 0)
+    when "Red"
+      puts Colors.new("Red", 0)
+    when "Yellow"
+      puts Colors.new("Yellow", 0)
+    when "White Metallic"
+      puts Colors.new("White Metallic", 6000)
+    when "GT Silver"
+      puts Colors.new("GT Silver", 6000)
+    when "Navy Metallic"
+      puts Colors.new("Navy Metallic", 6000)
+    when "Chalk Gray"
+      puts Colors.new("Chalk Gray", 6000)
+    when "Miami Blue"
+      puts Colors.new("Miami Blue", 6000)
+    when "Custom Color"
+      puts Colors.new("Custom Color", 18000)
+    when "Exit"
+      next 
+    end
+  end
 
 
 
@@ -36,12 +78,12 @@ class Colors < Spec
 
 
 
-color_spec = Colors.new("GT Silver", "6000")
-puts color_spec
+# color_spec = Colors.new("GT Silver", "6000")
+# puts color_spec
 
 
 # Class Colors
-#     def initialize(["White", "Black", "Red", "Yellow"], ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], ["Custom Color"]
+#     def initialize(["White", "Black", "Red", "Yellow"], ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Miami Blue"], ["Custom Color"]
 #         @no_cost = no cost
 #         @extra_cost = extra cost
 #         @high_cost = high cost
@@ -50,40 +92,7 @@ puts color_spec
 
 
 
-def color
-    start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"], "Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"])
-    start
-  end
 
-  option = ""
-while option != "Exit"
-  option = color
-  case option
-  when "White"
-    spec.color("White") && cost.price(0)
-  when "Black"
-    spec.color("Black") && cost.price(0)
-  when "Red"
-    spec.color("Red") && cost.price(0)
-  when "Yellow"
-    spec.color("Yellow") && cost.price(0)
-when "White Metallic"
-    spec.color("White Metallic") && cost.price(6000)
-when "GT Silver"
-    spec.color("GT Silver") && cost.price(6000)
-when "Navy Metallic"
-    spec.color("Navy Metallic") && cost.price(6000)
-when "Chalk Gray"
-    spec.color("Chalk Gray") && cost.price(6000)
-when "Miami Blue"
-    spec.color("Miami Blue") && cost.price(6000)
-when "Custom Color"
-    spec.color("Custom Color") && cost.price(18000)
-  else 
-    puts select_option
-    next 
-  end
-end
 
 # or?
 #   if color == "White" || color == "Black" || color == "Red" || color == "Yellow"

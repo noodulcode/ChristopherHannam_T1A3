@@ -1,3 +1,6 @@
+require "tty-prompt"
+#Prompt script
+$prompt = TTY::Prompt.new
 
 # Interior -
 #          No cost - Leather Comfort Seats and Accents
@@ -13,7 +16,7 @@
 # end
 # end
 
-class Interior < Spec
+class Interior #< Spec
     def initialize(seats, price)
         @seats = seats
         @price = price
@@ -33,5 +36,31 @@ class Interior < Spec
 end
 
 
-interior_spec = Interior.new("Alcantara Bucket seats and Accents", "3000")
-puts interior_spec
+
+
+def interior
+    start = $prompt.select("No Cost Options:", ["Leather Comfort Seats and Accents"], "Premium Options:", ["Alcantara Comfort Seats and Accents", "Alcantara Bucket seats and Accents", "Electrically Adjustable Leather Comfort Seats and Accents"], "Premium Option:", ["Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents"], "Exit")
+    start
+  end
+
+  option = ""
+  while option != "Exit"
+    option = interior
+    case option
+    when "Leather Comfort Seats and Accents"
+        puts Interior.new("Leather Comfort Seats and Accents", 0)
+    when "Alcantara Comfort Seats and Accents"
+        puts Interior.new("Alcantara Comfort Seats and Accents", 3000)
+    when "Alcantara Bucket seats and Accents"
+        puts Interior.new("Alcantara Bucket seats and Accents", 3000)
+    when "Electrically Adjustable Leather Comfort Seats and Accents"
+        puts Interior.new("Electrically Adjustable Leather Comfort Seats and Accents", 3000)
+    when "Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents"
+        puts Interior.new("Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents", 5000)
+    when "Exit"
+        next  
+    end
+  end
+
+# interior_spec = Interior.new("Alcantara Bucket seats and Accents", "3000")
+# puts interior_spec

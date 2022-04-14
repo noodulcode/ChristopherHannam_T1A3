@@ -1,3 +1,7 @@
+require "tty-prompt"
+#Prompt script
+$prompt = TTY::Prompt.new
+
 # How to be able to select as many options as you like???
 
 # Exterior - 
@@ -15,7 +19,7 @@
 # end
 
 
-class Exterior < Spec
+class Exterior #< Spec
     def initialize(body, carbon, price)
         @body = body
         @carbon = carbon

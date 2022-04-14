@@ -1,4 +1,7 @@
-require_relative("./wheels.rb")
+#require_relative("./wheels.rb")
+require "tty-prompt"
+#Prompt script
+$prompt = TTY::Prompt.new
 
 # Wheel colors - Subclass of Wheels
 # No cost - Silver, White
@@ -13,7 +16,7 @@ require_relative("./wheels.rb")
 #     end
 # end
 
-class WheelColors < Wheels
+class WheelColors #< Wheels
     def initialize(color, price)
         @color = color
         @price = price
@@ -34,5 +37,37 @@ end
 
 
 
-wheel_color_spec = Wheel_colors.new("Satin Black", "1000")
-puts wheel_color_spec
+
+
+def wheel_colors
+    start = $prompt.select("No Cost Options:", ["Silver", "White"], "Premium Options:", ["Black", "Satin Black", "Satin Copper", "Satin Deep Blue"], "Special Color:", ["Satin Black with Yellow rim borders (not available on carbon fibre wheels)"], "Exit")
+    start
+  end
+  
+  option = ""
+  while option != "Exit"
+  option = wheel_colors
+  case option
+  when "Silver"
+    puts WheelColors.new("Silver", 0)
+  when "Silver"
+    puts WheelColors.new("White", 0)
+  when "Black"
+    puts WheelColors.new("Black", 1000)
+  when "Satin Black"
+    puts WheelColors.new("Satin Black", 1000)
+  when "Satin Copper"
+    puts WheelColors.new("Satin Copper", 1000)
+  when "Satin Deep Blue"
+    puts WheelColors.new("Satin Deep Blue", 1000)
+  when "Satin Black with Yellow rim borders (not available on carbon fibre wheels)" && @wheels != "20 inch Carbon Fibre"
+    puts WheelColors.new("Satin Black with Yellow rim borders", 2000)
+  when "Exit"
+    next 
+  else 
+    "That wheel/color combination is incompatible"
+  end
+  end
+
+#   wheel_color_spec = Wheel_colors.new("Satin Black", "1000")
+#   puts wheel_color_spec
