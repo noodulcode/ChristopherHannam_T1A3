@@ -20,14 +20,14 @@ $prompt = TTY::Prompt.new
 
 
 class Exterior #< Spec
-    def initialize(body, carbon, price)
-        @body = body
-        @carbon = carbon
+    def initialize(exterior, price) #(body, carbon, price)
+        #@body = body
+        @exterior = exterior
         @price = price
     end
 
     def to_s
-        return "#{@body} for #{@price}"
+        return #"#{@body} for #{@price}"
                 "#{carbon} for #{@price}"
     end
 
@@ -41,5 +41,30 @@ class Exterior #< Spec
 end
 
 
-eterior_spec = Interior.new("Alcantara Bucket seats and Accents", "3000")
-puts exterior_spec
+def exterior
+    start = $prompt.select("No Cost Options:", ["Carbon Fibre Rear Wing", "Painted Brake Calipers", "Badge Deletion"], "Premium Options:", ["Carbon Fibre Roof"], "Premium Option:", ["Carbon Fibre Roof and Bonnet and full Accent Package"], "Exit")
+    start
+  end
+
+  option = ""
+  while option != "Exit"
+    option = exterior
+    case option
+    when "Carbon Fibre Rear Wing"
+        puts Exterior.new("Carbon Fibre Rear Wing", 0)
+    when "Painted Brake Calipers"
+        puts Exterior.new("Painted Brake Calipers", 0)
+    when "Badge Deletion"
+        puts Exterior.new("Badge Deletion", 0)
+    when "Carbon Fibre Roof"
+        puts Exterior.new("Carbon Fibre Roof", 3000)
+    when "Carbon Fibre Roof and Bonnet and full Accent Package"
+        puts Exterior.new("Carbon Fibre Roof and Bonnet and full Accent Package", 9000)
+    when "Exit"
+        next  
+    end
+  end
+
+
+# exterior_spec = Exterior.new("Alcantara Bucket seats and Accents", "3000")
+# puts exterior_spec

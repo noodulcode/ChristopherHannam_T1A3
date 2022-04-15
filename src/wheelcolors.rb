@@ -15,17 +15,21 @@ $prompt = TTY::Prompt.new
 #         @high_cost = high cost
 #     end
 # end
-
-class WheelColors #< Wheels
+require_relative("./wheels.rb")
+class WheelColors < Wheels
+  attr_reader :wheel, :price
     def initialize(color, price)
         @color = color
         @price = price
     end
 
-    def to_s
-        return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
-    end
-
+    # def to_s
+    #   #return wheel_colors.wheel
+    #   #return wheel_color = "#{$wheel1} wheels painted in #{@color} for $#{@price}"
+    #   #return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
+    # end
+    
+    
 
     # def paint(color)
     #     @color << color

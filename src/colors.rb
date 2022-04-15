@@ -15,7 +15,7 @@ class Colors #< Spec
     end
   end
     def to_s
-        return "Pocer Primacara 4SRGT in #{@color} for $#{@price}"
+        return $color = "#{@color} paint for $#{@price}"
     end
     # def choose
     #     @options << {selection: price}

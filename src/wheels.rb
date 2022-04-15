@@ -18,18 +18,24 @@ $prompt = TTY::Prompt.new
 #     end
 # end
 
-class Wheels #< Spec
+class Wheels < Spec
     attr_reader :wheel, :price
     def initialize(wheel, price)
         @wheel = wheel
         @price = price
     end
 
-
-    def to_s
-        return "Pocer Primacara 4SRGT with #{@wheel} wheels for $#{@price}"
-    end
-
+  def to_s
+    $wheel1 = ["#{@wheel} wheels", "$#{@price}"]
+    return $wheel = "#{@wheel} for $#{@price}"
+    #return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
+  end
+  
+  
+    # def to_s
+    #     wheel_spec = "#{@wheel} wheels for $#{@price}"
+    #     puts wheel_spec
+    # end
 
     # def paint(color)
     #     @color << color
@@ -53,7 +59,7 @@ while option != "Exit"
   option = wheels
   case option
   when "20 inch Forged Aluminium"
-    puts Wheels.new("20 inch Forged Aluminium", 0)
+    puts = Wheels.new("20 inch Forged Aluminium", 0)
   when "20 inch Forged Magnesium"
     puts Wheels.new("20 inch Forged Magnesium", 28000)
   when "20 inch Forged Aluminium"

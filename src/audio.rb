@@ -43,9 +43,9 @@ def audio
     option = audio
     case option
     when "Deletion of all audio gear (reduces weight)"
-        puts Audio.new("No Audio System", 0)
+        puts infotainment = Audio.new("No Audio System", 0)
     when "8 Speaker Surround Sound System with GPS and Touchscreen"
-        puts Audio.new("8 Speaker Surround Sound System with GPS and Touchscreen", 4000)
+        puts infotainment = Audio.new("8 Speaker Surround Sound System with GPS and Touchscreen", 4000)
     when "Exit"
         next 
     end
