@@ -37,10 +37,10 @@ end
 
 # Methods to write:
 # start a new spec, delete option method, reset all options method - inherited
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
     
  def new_spec
-   spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Audio"], "My Spec", "Exit")
+   spec = $prompt.select("Select a category to start optioning", ["Color", "Wheels", "Wheel Color", "Interior", "Audio"], "Exit", per_page: 16)
    spec
  end
  option = ""
@@ -61,15 +61,11 @@ while option != "Exit"
   #   require_relative("./mechanical.rb")
   when "Audio"
     require_relative("./audio.rb")
-  when "My Spec"
-    #spec = Spec.new("color", "wheels", "wheel_color", "interior", "audio")
-    puts $wheel1
-    puts infotainment
-    #puts "Your spec so far #{Spec.full_spec}"
   when "Exit"
     next
   end
 end
+
 
 # new_spec.each do |option|
 #     puts option

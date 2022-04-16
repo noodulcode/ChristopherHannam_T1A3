@@ -1,7 +1,7 @@
 #require_relative("./wheels.rb")
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 # Wheel colors - Subclass of Wheels
 # No cost - Silver, White
@@ -23,11 +23,11 @@ class WheelColors < Wheels
         @price = price
     end
 
-    # def to_s
-    #   #return wheel_colors.wheel
-    #   #return wheel_color = "#{$wheel1} wheels painted in #{@color} for $#{@price}"
-    #   #return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
-    # end
+    def to_s
+      #return wheel_colors.wheel
+      return $rim_col = "Wheels painted in #{@color} for $#{@price}"
+      #return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
+    end
     
     
 
@@ -44,7 +44,7 @@ end
 
 
 def wheel_colors
-    start = $prompt.select("No Cost Options:", ["Silver", "White"], "Premium Options:", ["Black", "Satin Black", "Satin Copper", "Satin Deep Blue"], "Special Color:", ["Satin Black with Yellow rim borders (not available on carbon fibre wheels)"], "Exit")
+    start = $prompt.select("No Cost Colors:", ["Silver", "White"], "Premium Colors:", ["Black", "Satin Black", "Satin Copper", "Satin Deep Blue"], "Special Color:", ["Satin Black with Yellow rim borders (not available on carbon fibre wheels)"], "Exit", per_page: 16)
     start
   end
   
@@ -53,19 +53,23 @@ def wheel_colors
   option = wheel_colors
   case option
   when "Silver"
-    puts WheelColors.new("Silver", 0)
+    puts rim_col = WheelColors.new("Silver", 0)
   when "Silver"
-    puts WheelColors.new("White", 0)
+    puts rim_col =  WheelColors.new("White", 0)
+  when "Premium Colors:"
+    puts "Not a valid selection"
   when "Black"
-    puts WheelColors.new("Black", 1000)
+    puts rim_col =  WheelColors.new("Black", 1000)
   when "Satin Black"
-    puts WheelColors.new("Satin Black", 1000)
+    puts rim_col =  WheelColors.new("Satin Black", 1000)
   when "Satin Copper"
-    puts WheelColors.new("Satin Copper", 1000)
+    puts rim_col =  WheelColors.new("Satin Copper", 1000)
   when "Satin Deep Blue"
-    puts WheelColors.new("Satin Deep Blue", 1000)
+    puts rim_col =  WheelColors.new("Satin Deep Blue", 1000)
+  when "Special Color:"
+    puts "Not a valid selection"
   when "Satin Black with Yellow rim borders (not available on carbon fibre wheels)" && @wheels != "20 inch Carbon Fibre"
-    puts WheelColors.new("Satin Black with Yellow rim borders", 2000)
+    puts rim_col =  WheelColors.new("Satin Black with Yellow rim borders", 2000)
   when "Exit"
     next 
   else 

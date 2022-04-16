@@ -124,7 +124,7 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 
 
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 
 def about
@@ -136,7 +136,7 @@ def show_price
 end
 #require_relative("./spec.rb")
 def select_option
-  start = $prompt.select("Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "Saved Session", "Exit"])
+  start = $prompt.select("Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "My Spec", "Exit Configurator"])
   start
 end
 system "clear"
@@ -150,10 +150,10 @@ while option != "Exit"
     show_price
   when "Spec a new 4SRGT"
     require_relative("./spec.rb")
-  when "Saved Session"
-    
-  when "Exit"
-    next
+  when "My Spec"
+    require_relative("./my_spec.rb")
+  when "Exit Configurator"
+    exit
   end
 end
 

@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 # Colors - 
 # No cost - White, Black, Red, Yellow
@@ -15,45 +15,55 @@ class Colors #< Spec
     end
   end
     def to_s
-        return $color = "#{@color} paint for $#{@price}"
+        return $paint = "#{@color} paint for $#{@price}"
     end
     # def choose
     #     @options << {selection: price}
     # end
 
+   
+  #   def color
+  #   no_cost = ["White", "Black", "Red", "Yellow"]
+  #   premium = ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"]
+  # $prompt.select("No Cost Options:", no_cost, "Premium Colors:", premium)
+  # no_cost
+  # premium
+  #   end
 
     def color
-      start = $prompt.select("No Cost Options:", ["White", "Black", "Red", "Yellow"], "Premium Colors:", ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color:", ["Custom"], "Exit")
+      start = $prompt.select("No Cost Colors:".colorize(:red), ["White", "Black", "Red", "Yellow"], "Premium Colors:".colorize(:red), ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color", "Exit", per_page: 16)
       start
     end
-    # def spec(color)
-    #   @color << color
-    # end
+    def spec(color)
+      @color << color
+    end
   
     option = ""
     while option != "Exit"
       option = color
     case option
     when "White"
-      puts Colors.new("White", 0)
+      puts paint = Colors.new("White", 0)
     when "Black"
-      puts Colors.new("Black", 0)
+      puts paint = Colors.new("Black", 0)
     when "Red"
-      puts Colors.new("Red", 0)
+      puts paint = Colors.new("Red", 0)
     when "Yellow"
-      puts Colors.new("Yellow", 0)
+      puts paint = Colors.new("Yellow", 0)
+    when "Premium Colors:"
+      puts "Not a valid selection"
     when "White Metallic"
-      puts Colors.new("White Metallic", 6000)
+      puts paint = Colors.new("White Metallic", 6000)
     when "GT Silver"
-      puts Colors.new("GT Silver", 6000)
+      puts paint = Colors.new("GT Silver", 6000)
     when "Navy Metallic"
-      puts Colors.new("Navy Metallic", 6000)
+      puts paint = Colors.new("Navy Metallic", 6000)
     when "Chalk Gray"
-      puts Colors.new("Chalk Gray", 6000)
+      puts paint = Colors.new("Chalk Gray", 6000)
     when "Miami Blue"
-      puts Colors.new("Miami Blue", 6000)
+      puts paint = Colors.new("Miami Blue", 6000)
     when "Custom Color"
-      puts Colors.new("Custom Color", 18000)
+      puts paint = Colors.new("Custom Color", 18000)
     when "Exit"
       next 
     end

@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 # How to be able to select as many options as you like???
 
@@ -42,7 +42,7 @@ end
 
 
 def exterior
-    start = $prompt.select("No Cost Options:", ["Carbon Fibre Rear Wing", "Painted Brake Calipers", "Badge Deletion"], "Premium Options:", ["Carbon Fibre Roof"], "Premium Option:", ["Carbon Fibre Roof and Bonnet and full Accent Package"], "Exit")
+    start = $prompt.collect"No Cost Options:", ["Carbon Fibre Rear Wing", "Painted Brake Calipers", "Badge Deletion"], "Premium Options:", ["Carbon Fibre Roof"], "Premium Option:", ["Carbon Fibre Roof and Bonnet and full Accent Package"], "Exit")
     start
   end
 

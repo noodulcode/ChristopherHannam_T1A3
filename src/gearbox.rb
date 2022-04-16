@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 # Mechanical -
 #             No cost - Dual Clutch 7 Speed Gearbox with Paddle Shift, 6 Speed Manual

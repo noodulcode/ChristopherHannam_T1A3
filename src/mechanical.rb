@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 # Mechanical -
 #             No cost - Dual Clutch 7 Speed Gearbox with Paddle Shift, 6 Speed Manual
@@ -39,7 +39,7 @@ class Mechanical #< Spec
 end
 
 def mechanical
-    start = $prompt.select("No Cost Options:", ["Dual Clutch 7 Speed Gearbox with Paddle Shift", "6 Speed Manual"], "Premium Options:", ["Hydraulic push button Front Nose Lift", "Magnesium Sports Exhaust with Valve Control and Magnesium Tips"], "Special Option:", ["Prima Race Package - includes(Fire Extinguisher, Lap Timer, 12 o'clock steering wheel marker, Body Colored Seat Belts, Ceramic Brakes, Adjustable Suspension, Half Cage, Battery Disconnect Switch) (*only available with Magnesium or Carbon Fibre Wheels and Race Bucket Seats)"], "Exit")
+    start = $prompt.collect("No Cost Options:", ["Dual Clutch 7 Speed Gearbox with Paddle Shift", "6 Speed Manual"], "Premium Options:", ["Hydraulic push button Front Nose Lift", "Magnesium Sports Exhaust with Valve Control and Magnesium Tips"], "Special Option:", ["Prima Race Package - includes(Fire Extinguisher, Lap Timer, 12 o'clock steering wheel marker, Body Colored Seat Belts, Ceramic Brakes, Adjustable Suspension, Half Cage, Battery Disconnect Switch) (*only available with Magnesium or Carbon Fibre Wheels and Race Bucket Seats)"], "Exit")
     start
   end
 def 

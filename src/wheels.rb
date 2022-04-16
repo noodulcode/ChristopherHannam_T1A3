@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
 # Wheels - Superclass of Wheel Colors, subclass of Spec
 # No cost - 20 inch Forged Aluminium
@@ -26,8 +26,8 @@ class Wheels < Spec
     end
 
   def to_s
-    $wheel1 = ["#{@wheel} wheels", "$#{@price}"]
-    return $wheel = "#{@wheel} for $#{@price}"
+    #$wheel1 = ["#{@wheel} wheels", "$#{@price}"]
+    return $rim = "#{@wheel} wheels for $#{@price}"
     #return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
   end
   
@@ -50,7 +50,7 @@ end
 
 
 def wheels
-    start = $prompt.select("No Cost Options:", ["20 inch Forged Aluminium"], "Premium Options:", ["20 inch Forged Magnesium"], "Special Wheels:", ["20 inch Carbon Fibre"], "Exit")
+    start = $prompt.select("No Cost Wheels:".colorize(:red), ["20 inch Forged Aluminium"], "Premium Wheels:".colorize(:red), ["20 inch Forged Magnesium"], "Special Wheels:".colorize(:red), ["20 inch Carbon Fibre"], "Exit", per_page: 16)
     start
   end
 
@@ -59,11 +59,15 @@ while option != "Exit"
   option = wheels
   case option
   when "20 inch Forged Aluminium"
-    puts = Wheels.new("20 inch Forged Aluminium", 0)
+    puts rim = Wheels.new("20 inch Forged Aluminium", 0)
+  when "Premium Wheels:"
+    puts "Not a valid selection"
   when "20 inch Forged Magnesium"
-    puts Wheels.new("20 inch Forged Magnesium", 28000)
+    puts rim =  Wheels.new("20 inch Forged Magnesium", 28000)
+  when "Special Wheels:"
+    puts "Not a valid selection"
   when "20 inch Forged Aluminium"
-    puts Wheels.new("20 inch Carbon Fibre", 38000)
+    puts rim =  Wheels.new("20 inch Carbon Fibre", 38000)
   when "Exit"
     next
   end

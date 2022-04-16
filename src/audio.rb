@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new
+$prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # Audio - 
 #             No cost - Deletion of all audio gear (reduces weight)
 #             Extra cost $4000 - 8 Speaker Surround Sound System with GPS and Touchscreen
@@ -21,7 +21,7 @@ class Audio #< Spec
     end
 
     def to_s
-        return "#{@audio} for $#{@price}"
+        return $stereo = "#{@audio} for $#{@price}"
     end
 
 
@@ -43,9 +43,9 @@ def audio
     option = audio
     case option
     when "Deletion of all audio gear (reduces weight)"
-        puts infotainment = Audio.new("No Audio System", 0)
+        puts stereo = Audio.new("No Audio System", 0)
     when "8 Speaker Surround Sound System with GPS and Touchscreen"
-        puts infotainment = Audio.new("8 Speaker Surround Sound System with GPS and Touchscreen", 4000)
+        puts stereo = Audio.new("8 Speaker Surround Sound System with GPS and Touchscreen", 4000)
     when "Exit"
         next 
     end
