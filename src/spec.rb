@@ -1,5 +1,4 @@
 # Spec is the Superclass of all options and subclass of Car
-# require_relative("./car.rb")
 require "tty-prompt"
 
 class Spec# < Car
@@ -19,21 +18,6 @@ end
     def self.full_spec
         @@full_spec
     end
-# require_relative("./colors.rb")
-# require_relative("./wheels.rb")
-# require_relative("./wheelcolors.rb")
-# require_relative("./interior.rb")
-# require_relative("./exterior.rb")
-# require_relative("./mechanical.rb")
-# require_relative("./audio.rb")
-
-
-
-
-
-
-
-
 
 # Methods to write:
 # start a new spec, delete option method, reset all options method - inherited

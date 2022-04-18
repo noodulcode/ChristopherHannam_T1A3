@@ -1,6 +1,6 @@
 require "tty-prompt"
 #Prompt script
-$prompt = TTY::Prompt.new(active_color: :cyan)
+$prompt = TTY::Prompt.new(active_color: :cyan, per_page: 16)
 
 
 # def delete_option

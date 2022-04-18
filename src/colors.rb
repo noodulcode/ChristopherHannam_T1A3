@@ -30,13 +30,40 @@ class Colors #< Spec
   # premium
   #   end
 
+#   choices = {small: 1, medium: 2, large: 3}
+# prompt.select("What size?", choices)
+# =>
+# What size? (Press ↑/↓ arrow to move and Enter to select)
+# ‣ small
+#   medium
+#   large
+# prompt.select("What size?") do |menu|
+#   menu.choice name: "small",  value: 1
+#   menu.choice name: "medium", value: 2, disabled: "(out of stock)"
+#   menu.choice name: "large",  value: 3
+# end
+# =>
+# What size? (Press ↑/↓ arrow to move and Enter to select)
+# ‣ small
+# ✘ medium (out of stock)
+#   large
+# def color
+# no_cost = {"White" => 0, "Black" => 0, "Red"=>  0, "Yellow" => 0} 
+# premium = {"White Metallic:" => 6000, "GT Silver:" => 6000, "Metallic Navy:" => 6000, "Chalk Grey:" => 6000, "Bluesky:" => 6000}
+#     start = $prompt.select("No Cost Colors:", [no_cost], "Premium Colors:", [premium]) do |menu|
+#       color.no_cost
+#       color.premium
+#     end
+#   end
+  
+
     def color
       start = $prompt.select("No Cost Colors:".colorize(:red), ["White", "Black", "Red", "Yellow"], "Premium Colors:".colorize(:red), ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color", "Exit", per_page: 16)
       start
     end
-    def spec(color)
-      @color << color
-    end
+    # def spec(color)
+    #   @color << color
+    # end
   
     option = ""
     while option != "Exit"

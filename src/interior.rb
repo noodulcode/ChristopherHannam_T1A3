@@ -16,11 +16,11 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # end
 # end
 
-class Interior #< Spec
-    def initialize(seats, price)
-        @seats = seats
-        @price = price
-    end
+# class Interior #< Spec
+#     def initialize(seats, price)
+#         @seats = seats
+#         @price = price
+#     end
 
     def to_s
         return $seats = "#{@seats} for $#{@price}"
@@ -39,7 +39,7 @@ end
 
 
 def interior
-    start = $prompt.select("No Cost Options:", ["Leather Comfort Seats and Accents"], "Premium Options:", ["Alcantara Comfort Seats and Accents", "Alcantara Bucket seats and Accents", "Electrically Adjustable Leather Comfort Seats and Accents"], "Special Option:", ["Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents"], "Exit")
+    start = $prompt.select("No Cost Options:", ["Leather Comfort Seats and Accents"], "Premium Options:", ["Alcantara Comfort Seats and Accents", "Alcantara Bucket seats and Accents", "Electrically Adjustable Leather Comfort Seats and Accents"], "Special Option:", ["Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents"], "Exit", per_page: 16)
     start
   end
 

@@ -32,22 +32,17 @@ class MySpec #< Spec
       start
     end
     def delete_option
-      start = $prompt.select("Choose an option to delete:", [$my_spec])
+      start = $prompt.select("Choose an option to delete:", [$my_spec], "Exit")
       start
-  # end
-  # def delete
-
-    puts $prompt.yes?("Are you sure you want to remove selected option")
+      
+    puts $prompt.yes?("Are you sure you want to remove selected option?")
     confirm = gets.chomp
     if confirm == "y"
       delete_option.delete(option)
     else puts "User Cancelled"
   end
 end
-    # def spec(color)
-    #   @color << color
-    # end
-  
+
     option = ""
     while option != "Exit"
       option = user_options
@@ -55,6 +50,7 @@ end
     when "Show My Spec"
       puts $my_spec = [$paint, $rim, $rim_col, $seats, $stereo]
     when "Remove Option"
+      puts $my_spec = [$paint, $rim, $rim_col, $seats, $stereo]
       puts delete_option
     when "Reset My Spec"
       require_relative("./spec.rb")
@@ -64,7 +60,9 @@ end
   end
 
  
-
+ # def spec(color)
+    #   @color << color
+    # end
 
 
 #Methods for adding a paint color and the price to the spec sheet for color

@@ -126,7 +126,6 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 #Prompt script
 $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
-
 def about
   puts "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power."
 end
@@ -139,7 +138,7 @@ def select_option
   start = $prompt.select("Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "My Spec", "Exit Configurator"])
   start
 end
-system "clear"
+# system "clear"
 option = ""
 while option != "Exit"
   option = select_option
