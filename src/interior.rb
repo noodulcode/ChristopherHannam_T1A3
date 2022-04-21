@@ -16,16 +16,16 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # end
 # end
 
-# class Interior #< Spec
-#     def initialize(seats, price)
-#         @seats = seats
-#         @price = price
-#     end
+class Interior #< Spec
+    def initialize(seats, price)
+        @seats = seats
+        @price = price
+    end
 
     def to_s
         return $seats = "#{@seats} for $#{@price}"
     end
-
+end
 
     # def paint(color)
     #     @color << color
@@ -33,7 +33,7 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
     # def cost(price)
     #     @price << price
     # end
-end
+
 
 
 

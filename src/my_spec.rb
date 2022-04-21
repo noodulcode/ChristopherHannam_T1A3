@@ -15,26 +15,25 @@ class MySpec #< Spec
     end
   end
     def to_s
-        return user_spec = [$paint, $rim, $rim_col, $seats, $stereo]
+        return $user_spec = [$paint, $rim, $rim_col, $seats, $stereo]
     end
-  
+    
     # def remove_option(user_spec)
     #   print "Type the first word of the option you would like to delete"
     #   option = gets.chomp
     #   user_spec.push(option)
     #   print my_spec
     
-
+    
 
 
     def user_options
-      start = $prompt.select("My Spec:", ["Show My Spec", "Remove Option", "Reset My Spec", "Exit"])
+      start = $prompt.select("My Spec:", ["Show My Spec", "Spec Cost", "Remove Option", "Reset My Spec", "Exit"])
       start
     end
     def delete_option
       start = $prompt.select("Choose an option to delete:", [$my_spec], "Exit")
       start
-      
     puts $prompt.yes?("Are you sure you want to remove selected option?")
     confirm = gets.chomp
     if confirm == "y"
@@ -49,6 +48,8 @@ end
     case option
     when "Show My Spec"
       puts $my_spec = [$paint, $rim, $rim_col, $seats, $stereo]
+    when "Spec Cost"
+        puts spec_price = $user_spec.sum {|h| $user_spec[:price] }
     when "Remove Option"
       puts $my_spec = [$paint, $rim, $rim_col, $seats, $stereo]
       puts delete_option
@@ -59,6 +60,10 @@ end
     end
   end
 
+  # def spec_price
+  #   spec_price = user_spec.sum {|cost| cost[:amount] }
+  #   puts spec_price
+  # end
  
  # def spec(color)
     #   @color << color
