@@ -9,17 +9,18 @@ class Interior < Spec
     @seats = seats
     @price = price
   end
-
+# Methods
+# List options and price
   def to_s
     $seats = "#{@seats} for $#{@price}"
   end
 end
-
+# Menu
 def interior
   $prompt.select('No Cost Options:'.colorize(:red), ['Leather Comfort Seats and Accents'],
                  'Premium Options:'.colorize(:red), ['Alcantara Comfort Seats and Accents', 'Alcantara Bucket seats and Accents', 'Electrically Adjustable Leather Comfort Seats and Accents'], 'Special Option:'.colorize(:red), ['Carbon Fibre Racing Bucket seats lightweight with 6 point Harnesses and Carbon Fibre Accents'], 'Exit', per_page: 16)
 end
-
+# Menu Case
 option = ''
 while option != 'Exit'
   option = interior

@@ -15,16 +15,17 @@ class Colors < Spec
     @price = price
   end
 end
-
+# Methods
+# List options and price
 def to_s
   $paint = "#{@color} paint for $#{@price}"
 end
-
+# Menu
 def color
   $prompt.select('No Cost Colors:'.colorize(:red), %w[White Black Red Yellow],
-                 'Premium Colors:'.colorize(:red), ['White Metallic', 'GT Silver', 'Metallic Navy', 'Chalk Gray', 'Bluesky'], 'Custom Color', 'Exit', per_page: 16)
+                 'Premium Colors:'.colorize(:red), ['White Metallic', 'GT Silver', 'Metallic Navy', 'Chalk Gray', 'Miami Blue'], 'Custom Color', 'Exit', per_page: 16)
 end
-
+# Menu case
 option = ''
 while option != 'Exit'
   option = color
@@ -43,8 +44,8 @@ while option != 'Exit'
     puts paint = Colors.new('White Metallic', 6000)
   when 'GT Silver'
     puts paint = Colors.new('GT Silver', 6000)
-  when 'Navy Metallic'
-    puts paint = Colors.new('Navy Metallic', 6000)
+  when 'Metallic Navy'
+    puts paint = Colors.new('Metallic Navy', 6000)
   when 'Chalk Gray'
     puts paint = Colors.new('Chalk Gray', 6000)
   when 'Miami Blue'

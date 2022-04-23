@@ -1,7 +1,8 @@
 require 'tty-prompt'
 # Prompt script
 $prompt = TTY::Prompt.new(active_color: :cyan, per_page: 16)
-
+# Methods
+# Delete an option
 def delete
   puts 'Are you sure you want to remove selected option? (y/n)'.colorize(:red)
   confirm = gets.chomp

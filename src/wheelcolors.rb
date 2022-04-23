@@ -15,17 +15,18 @@ class WheelColors < Wheels
     @color = color
     @price = price
   end
-
+# Methods
+# List options and price
   def to_s
     $rim_col = "Wheels painted in #{@color} for $#{@price}"
   end
 end
-
+# Menu
 def wheel_colors
   $prompt.select('No Cost Colors:'.colorize(:red), %w[Silver White], 'Premium Colors:'.colorize(:red),
                  ['Black', 'Satin Black', 'Satin Copper', 'Satin Deep Blue'], 'Special Color:'.colorize(:red), ['Satin Black with Yellow rim borders (not available on carbon fibre wheels)'], 'Exit', per_page: 16)
 end
-
+# Menu Case
 option = ''
 while option != 'Exit'
   option = wheel_colors

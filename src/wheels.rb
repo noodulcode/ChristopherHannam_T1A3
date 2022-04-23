@@ -8,17 +8,18 @@ class Wheels < Spec
     @wheel = wheel
     @price = price
   end
-
+# Methods
+# List options and price
   def to_s
     $rim = "#{@wheel} wheels for $#{@price}"
   end
 end
-
+# Menu
 def wheels
   $prompt.select('No Cost Wheels:'.colorize(:red), ['20 inch Forged Aluminium'],
                  'Premium Wheels:'.colorize(:red), ['20 inch Forged Magnesium'], 'Special Wheels:'.colorize(:red), ['20 inch Carbon Fibre'], 'Exit', per_page: 16)
 end
-
+# Menu Case
 option = ''
 while option != 'Exit'
   option = wheels

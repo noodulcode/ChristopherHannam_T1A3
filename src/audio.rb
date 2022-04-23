@@ -10,17 +10,18 @@ class Audio < Spec
     @audio = audio
     @price = price
   end
-
+# Methods
+# List option and price
   def to_s
     $stereo = "#{@audio} for $#{@price}"
   end
 end
-
+# Menu
 def audio
   $prompt.select('No Cost Options:'.colorize(:red),
                  ['Deletion of all audio gear (reduces weight)', '8 Speaker Surround Sound System with GPS and Touchscreen'], 'Exit')
 end
-
+# Menu case
 option = ''
 while option != 'Exit'
   option = audio

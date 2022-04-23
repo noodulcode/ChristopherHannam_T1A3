@@ -11,14 +11,16 @@ class Spec
   end
 end
 
-# Methods to write:
-# start a new spec, delete option method, reset all options method - inherited
+# Prompt
 $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 
+#Methods
+# Menu
 def new_spec
   $prompt.select('Select a category to start optioning',
                  ['Color', 'Wheels', 'Wheel Color', 'Interior', 'Audio'], 'Exit', per_page: 16)
 end
+# Menu case
 option = ''
 while option != 'Exit'
   option = new_spec

@@ -10,8 +10,7 @@ class About
         @base_price = "The Pocer Primacara 4SRGT has a starting price of $310,000 plus extras."
     end
 end
-
-
+# Methods
 #Show About
 def about
     puts "The Pocer Primacara 4SRGT is a purpose built track tool. 
