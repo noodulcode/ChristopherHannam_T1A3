@@ -35,39 +35,3 @@ while option != "Exit"
     next
   end
 end
-
-#$wheel1 = ["#{@wheel} wheels", "$#{@price}"]
-#return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
-
-
-# wheel_spec = Wheels.new("20 inch Forged Magnesium", "28000")
-# puts wheel_spec
-
-
-# Wheels - Superclass of Wheel Colors, subclass of Spec
-# No cost - 20 inch Forged Aluminium
-# Extra cost $28000 - 20 inch Forged Magnesium
-# High cost $38000 (no color options) - 20 inch Carbon Fibre
-
-
-
- # def to_s
-    #     wheel_spec = "#{@wheel} wheels for $#{@price}"
-    #     puts wheel_spec
-    # end
-
-    # def paint(color)
-    #     @color << color
-    # end
-    # def cost(price)
-    #     @price << price
-    # end
-
-
-# Class Wheels
-#     def initialize(no_cost, extra_cost, high_cost)
-#         @no_cost = no cost
-#         @extra_cost = extra cost
-#         @high_cost = high cost
-#     end
-# end

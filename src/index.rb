@@ -138,7 +138,7 @@ def select_option
   start = $prompt.select("Welcome to the Pocer Primacara 4SRGT configurator. Please select from the options below", ["About the 4SRGT", "Base Price", "Spec a new 4SRGT", "My Spec", "Exit Configurator"])
   start
 end
-# system "clear"
+
 option = ""
 while option != "Exit"
   option = select_option
@@ -156,3 +156,6 @@ while option != "Exit"
   end
 end
 
+
+
+# system "clear"

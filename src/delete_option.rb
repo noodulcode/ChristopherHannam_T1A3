@@ -3,10 +3,6 @@ require "tty-prompt"
 $prompt = TTY::Prompt.new(active_color: :cyan, per_page: 16)
 
 
-# def delete_option
-#     start = $prompt.select("Choose an option to delete:", [$my_spec])
-#     start
-# end
 def delete
     puts "Are you sure you want to remove selected option? (y/n)".colorize(:red)
     confirm = gets.chomp

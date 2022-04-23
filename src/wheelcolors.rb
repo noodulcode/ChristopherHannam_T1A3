@@ -1,4 +1,3 @@
-#require_relative("./wheels.rb")
 require "tty-prompt"
 #Prompt script
 $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
@@ -8,13 +7,6 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # Extra Cost $1000 - Black, Satin Black, Satin Copper, Satin Deep Blue
 # High cost $2000 - Satin Black with Yellow rim borders (not on carbon fibre)
 
-# Class Wheel_Colour
-#     def initialize(no_cost, extra_cost, high_cost)
-#         @no_cost = no cost
-#         @extra_cost = extra cost
-#         @high_cost = high cost
-#     end
-# end
 require_relative("./wheels.rb")
 class WheelColors < Wheels
   attr_reader :color, :price
@@ -24,23 +16,9 @@ class WheelColors < Wheels
     end
 
     def to_s
-      #return wheel_colors.wheel
       return $rim_col = "Wheels painted in #{@color} for $#{@price}"
-      #return "#{@wheel} in #{@color} for $#{@price}" #wheel doesn't work or takes too much info
     end
-    
-    
-
-    # def paint(color)
-    #     @color << color
-    # end
-    # def cost(price)
-    #     @price << price
-    # end
 end
-
-
-
 
 
 def wheel_colors
@@ -76,6 +54,3 @@ def wheel_colors
     puts "That wheel/color combination is incompatible"
   end
   end
-
-#   wheel_color_spec = Wheel_colors.new("Satin Black", "1000")
-#   puts wheel_color_spec

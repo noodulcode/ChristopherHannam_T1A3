@@ -7,7 +7,7 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # Extra cost $6000 - White Metallic, GT Silver, Metallic Navy, Chalk Grey, Miami Blue
 # High cost $18000 - Custom Color
 
-class MySpec #< Spec
+class MySpec < Spec
     attr_reader :option, :price
     def initialize(option, price)
         @option = option
@@ -48,7 +48,8 @@ end
       puts $my_spec = [$paint, $rim, $rim_col, $seats, $stereo]
       puts delete_option
     when "Reset My Spec"
-      $my_spec = []
+      #require_relative("./spec.rb")
+      #$my_spec = []
     when "Exit"
       next 
     end
