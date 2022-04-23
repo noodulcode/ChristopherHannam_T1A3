@@ -17,7 +17,7 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # end
 require_relative("./wheels.rb")
 class WheelColors < Wheels
-  attr_reader :wheel, :price
+  attr_reader :color, :price
     def initialize(color, price)
         @color = color
         @price = price
@@ -44,7 +44,7 @@ end
 
 
 def wheel_colors
-    start = $prompt.select("No Cost Colors:", ["Silver", "White"], "Premium Colors:", ["Black", "Satin Black", "Satin Copper", "Satin Deep Blue"], "Special Color:", ["Satin Black with Yellow rim borders (not available on carbon fibre wheels)"], "Exit", per_page: 16)
+    start = $prompt.select("No Cost Colors:".colorize(:red), ["Silver", "White"], "Premium Colors:".colorize(:red), ["Black", "Satin Black", "Satin Copper", "Satin Deep Blue"], "Special Color:".colorize(:red), ["Satin Black with Yellow rim borders (not available on carbon fibre wheels)"], "Exit", per_page: 16)
     start
   end
   
@@ -68,12 +68,12 @@ def wheel_colors
     puts rim_col =  WheelColors.new("Satin Deep Blue", 1000)
   when "Special Color:"
     puts "Not a valid selection"
-  when "Satin Black with Yellow rim borders (not available on carbon fibre wheels)" && @wheels != "20 inch Carbon Fibre"
+  when "Satin Black with Yellow rim borders (not available on carbon fibre wheels)" && @wheel != "20 inch Carbon Fibre"
     puts rim_col =  WheelColors.new("Satin Black with Yellow rim borders", 2000)
   when "Exit"
     next 
   else 
-    "That wheel/color combination is incompatible"
+    puts "That wheel/color combination is incompatible"
   end
   end
 

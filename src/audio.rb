@@ -14,7 +14,7 @@ $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
 # end
 # end
 
-class Audio #< Spec
+class Audio < Spec
     def initialize(audio, price)
         @audio = audio
         @price = price
@@ -34,7 +34,7 @@ class Audio #< Spec
 end
 
 def audio
-    start = $prompt.select("No Cost Options:", ["Deletion of all audio gear (reduces weight)", "8 Speaker Surround Sound System with GPS and Touchscreen"], "Exit")
+    start = $prompt.select("No Cost Options:".colorize(:red), ["Deletion of all audio gear (reduces weight)", "8 Speaker Surround Sound System with GPS and Touchscreen"], "Exit")
     start
   end
 

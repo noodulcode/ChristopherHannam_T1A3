@@ -8,7 +8,7 @@ $prompt = TTY::Prompt.new(active_color: :cyan, per_page: 16)
 #     start
 # end
 def delete
-    puts "Are you sure you want to remove selected option? (y/n)"
+    puts "Are you sure you want to remove selected option? (y/n)".colorize(:red)
     confirm = gets.chomp
     if confirm == "y"
       my_spec.delete(option)

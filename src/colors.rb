@@ -58,7 +58,7 @@ class Colors #< Spec
   
 
     def color
-      start = $prompt.select("No Cost Colors:".colorize(:red), ["White", "Black", "Red", "Yellow"], "Premium Colors:".colorize(:red), ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Grey", "Bluesky"], "Custom Color", "Exit", per_page: 16)
+      start = $prompt.select("No Cost Colors:".colorize(:red), ["White", "Black", "Red", "Yellow"], "Premium Colors:".colorize(:red), ["White Metallic", "GT Silver", "Metallic Navy", "Chalk Gray", "Bluesky"], "Custom Color", "Exit", per_page: 16)
       start
     end
     # def spec(color)
