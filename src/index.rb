@@ -123,8 +123,9 @@ bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
 
 
 
-#Prompt script
+#Prompt scripts
 $prompt = TTY::Prompt.new(active_color: :cyan, help_color: :yellow)
+bar = TTY::ProgressBar.new("Loading Configurator [:bar]", total: 30)
 
 def about
   puts "The Pocer Primacara 4SRGT is purpose built track tool. A highly agile mid-engine track and road car with a 4.0-litre flat six-cylinder naturally aspirated engine with a 9000 RPM limit and 368kW of power."
@@ -148,6 +149,10 @@ while option != "Exit"
   when "Base Price"
     show_price
   when "Spec a new 4SRGT"
+    30.times do
+      sleep(0.1)
+      bar.advance  # by default increases by 1
+    end
     require_relative("./spec.rb")
   when "My Spec"
     require_relative("./my_spec.rb")
