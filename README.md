@@ -31,3 +31,14 @@ The fully optioned car object will have each items cost added to create a total 
 ### Project Management File
 
 Terminal App Project Mangement PDF file in Docs Folder
+
+
+### Styling Guide
+
+Code is formatted with [Rubocop](https://github.com/airbnb/ruby), a styling gem based on the [Ruby Style Guide](https://rubystyle.guide/)
+
+### Other Gems Used:
+
+[TTY-Prompt and TTY Progress Bar](https://ttytoolkit.org/) have been utilised in this program for menus and a loading bar.
+
+[Colorize](https://github.com/fazibear/colorize) was used for aesthetic purposes.
